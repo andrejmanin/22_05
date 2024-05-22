@@ -125,8 +125,43 @@ void task_2() {
 
 }
 
+void task_3() {
+    srand(time(0));
+
+    const int size_1 = 5;
+    const int size_2 = 10;
+    int matrix_1[size_1][size_2], matrix_2[size_1][size_1];
+
+    for(int i = 0; i < size_1; i++) {
+        for(int j = 0; j < size_2; j++) {
+            matrix_1[i][j] = rand() % 50;
+        }
+    }
+    for(int i = 0; i < size_1; i++) {
+        int k = 0;
+        for(int j = 0; j < size_1; j++) {
+            matrix_2[i][j] = matrix_1[i][k] + matrix_1[i][k + 1];
+            k += 2;
+        }
+    }
+
+    for(int i = 0; i < size_1; i++) {
+        for(int j = 0; j < size_2; j++) {
+            cout << matrix_1[i][j] << " ";
+        }
+        cout << endl;
+    }
+    cout << endl;
+    for(int i = 0; i < size_1; i++) {
+        for(int j = 0; j < size_1; j++) {
+            cout << matrix_2[i][j] << " ";
+        }
+        cout << endl;
+    }
+}
+
 int main() {
-    task_2();
+    task_3();
 
     return 0;
 }
